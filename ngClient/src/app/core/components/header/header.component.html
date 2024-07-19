@@ -1,0 +1,21 @@
+<header class="primary-header bg-blue-accent-400">
+  <div class="container">
+    <a routerLink="/" class="logo">
+      <img src="./assets/images/logo.svg" alt="" />
+    </a>
+
+    <nav class="primary-navigation">
+      <ul class="nav-list" role="list">
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/shorten">Table</a></li>
+      </ul>
+    </nav>
+
+    <div class="user">
+      <button routerLink="/auth" class="icon-button" style="font-size: 2rem;">
+        <fa-icon [icon]="iconUser"></fa-icon>
+      </button>
+      <button *ngIf="authService.currentUser$ | async" (click)="logout()" class="button">Logout</button>
+    </div>
+  </div>
+</header>

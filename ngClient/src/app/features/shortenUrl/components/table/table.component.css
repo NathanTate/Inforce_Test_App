@@ -1,0 +1,145 @@
+.wrapper {
+  border-radius: 10px;
+  border: 1px solid rgba(220, 220, 220, 0.7);
+  overflow-x: auto;
+  margin-top: 2rem;
+}
+
+.table-wrapper {
+  position: relative;
+  background-color: #fff;
+}
+
+.table-nav {
+  width: 100%;
+}
+
+.admin-group {
+  white-space: nowrap;
+  border-bottom: 1px solid var(--clr-primary-300);
+}
+
+.admin-btn {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background: transparent;
+  border: none;
+  padding: 1rem 1.5rem;
+  transition: color 300ms;
+  background-color: rgb(245, 6, 6);
+  color: var(--clr-primary-100);
+  font-weight: var(--fw-medium);
+}
+
+.admin-btn:is(.active, :hover, :focus-visible) {
+  opacity: 0.8;
+}
+
+.status-btn.active::after {
+  width: 100%;
+  transition: width 300ms;
+}
+
+.general-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+input[type=search] {
+  box-sizing: border-box;
+  font-size: 16px;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding: 10px 16px 10px 40px;
+  background-image: url("/assets/images/search.svg");
+}
+
+table {
+  width: 100%;
+  color: #000;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 1rem;
+}
+
+th {
+  text-wrap: nowrap;
+  text-align: start;
+}
+
+th.sortable {
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+
+.actions div {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+tr {
+  border-top: 1px solid rgba(220, 220, 220, 0.7);
+}
+
+tr:nth-of-type(2n) {
+  background-color: rgb(240, 240, 240);
+}
+
+tr:last-of-type {
+  border-bottom: 1px solid rgba(220, 220, 220, 0.7);
+}
+
+thead {
+  background-color: var(--clr-primary-200);
+  font-weight: var(--fw-medium);
+}
+
+thead fa-icon {
+  color: var(--clr-blue-accent-400);
+  margin-left: 0.25rem;
+}
+
+.pagination {
+  margin-block: 1rem 0.5rem;
+}
+
+.no-items-message {
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -80%);
+}
+
+progress {
+  transform: rotate(-90deg);
+  width: 30px;    
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--clr-primary-400);
+}
+
+

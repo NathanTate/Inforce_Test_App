@@ -1,0 +1,17 @@
+<article class="container wrapper bg-primary-100" style="--max-width: 765px" *ngIf="!!shortenUrl">
+  <h1 class="fs-primary-heading fw-bold">Shortened URL: {{shortenUrl.id}}</h1>
+  <p>Copy the short link and share it in messages, texts, posts, websites and other locations.</p>
+  <div class="shorten-url">
+    <div class="input-wrapper">
+      <label for="link" class="sr-only">Shorten Url Input</label>
+      <input #text class="Input" type="text" [value]="shortenUrl.shortUrl">
+      <button copyToClipboard="{{text.value}}" (onCopied)="onCopied()" class="button bg-blue-accent-400 shorten-button">Copy URL</button>
+      <p class="copied" *ngIf="isCopied">Url copied</p>
+    </div>
+    <p>Long Url: <a [href]="shortenUrl.longUrl">{{shortenUrl.longUrl}}</a></p>
+    <div class="info-box">
+      <span>Created: {{shortenUrl.createdAt | date: 'medium'}}</span>
+      <span>User Id:{{shortenUrl.applicationUserId}}</span>
+    </div>
+  </div>
+</article>

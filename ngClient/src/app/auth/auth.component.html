@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <form class="auth-form bg-primary-100" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <h2 class="fs-secondary-heading fw-bold">{{ loginMode ? 'Login' : 'Register'}}</h2>
+    <div class="form-group">
+      <label class="sr-only" for="email">Email</label>
+      <input type="email" id="email" formControlName="email" placeholder="Enter your Email">
+      <div class="helper-block" *ngIf="email?.invalid && (email?.touched || email?.dirty)">
+        <span class="text-danger" *ngIf="email?.hasError('required') && email?.touched">
+          Email is required
+        </span>
+        <span class="text-danger" *ngIf="email?.hasError('email')">
+          Invalid email address
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="email">Password</label>
+      <input type="password" id="password" formControlName="password" placeholder="Enter your password">
+      <div class="helper-block" *ngIf="password?.invalid && (password?.touched || password?.dirty)">
+        <span class="text-danger" *ngIf="password?.hasError('required')">
+          Password is required
+        </span>
+        <span class="text-danger" *ngIf="password?.hasError('pattern')">
+          Passwors Example: Pa$$w0rd, length between 6 and 32
+        </span>
+      </div>
+    </div>
+    <button type="submit" class="button bg-blue-accent-400">{{loginMode ? 'Login Now' : 'Register Now'}}</button>
+
+    <button type="button" class="switch-button">Don't have an account <span (click)="loginMode = !loginMode" class="text-blue-accent-400">Signup now</span></button>
+  </form>
+</div>

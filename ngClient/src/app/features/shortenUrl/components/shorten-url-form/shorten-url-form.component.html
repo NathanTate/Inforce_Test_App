@@ -1,0 +1,26 @@
+<div class="container" style="--max-width: 765px">
+  <div class="form-wrapper bg-primary-100">
+    <h2 class="fs-primary-heading fw-bold title">Paste the URL to be shortened</h2>
+    <p *ngIf="shortenUrl" class="shorten-url" style="padding-bottom: 1rem;">Short URL: <a [href]="shortenUrl">{{shortenUrl}}</a></p>
+    <form [formGroup]="shortenForm" (ngSubmit)="onSubmit()" class="shorten-form">
+      <div class="form-group">
+        <label for="link" class="sr-only">Enter url to be shorten</label>
+        <div class="input-wrapper">
+          <input class="input" type="text" formControlName="longUrl">
+          <button class="button bg-blue-accent-400 shorten-button">Shorten URL</button>
+        </div>
+        <div class="helper-block" *ngIf="longUrl?.invalid && (longUrl?.touched || longUrl?.dirty)">
+          <span class="text-danger" *ngIf="longUrl?.hasError('required') && longUrl?.touched">
+            Url is required
+          </span>
+        </div>
+      </div>
+    </form>
+    <div class="text-block">
+      <p>
+        ShortURL is a free tool to shorten URLs and generate short links <br>
+        URL shortener allows to create a shortened link making it easy to share
+      </p>
+    </div>
+  </div>
+</div>

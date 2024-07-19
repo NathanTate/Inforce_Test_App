@@ -1,0 +1,6 @@
+<div style="margin-block: 2rem;">
+  <div *ngIf="authService.currentUser$ | async">
+    <app-shorten-url-form></app-shorten-url-form>
+  </div>
+  <app-datatable></app-datatable>
+</div>

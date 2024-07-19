@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.wrapper {
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+}
+
+.wrapper h2 {
+  margin-block: 0.75rem;
+}
+

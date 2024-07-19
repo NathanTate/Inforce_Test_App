@@ -1,0 +1,48 @@
+.wrapper {
+  padding: 1rem 2rem;
+  margin-block: 2rem;
+}
+
+.input-wrapper {
+  position: relative;
+  text-align: left;
+}
+
+.input-wrapper .copied {
+  position: absolute;
+  bottom: -2rem;
+  right: 0;
+  background-color: var(--clr-primary-600);
+  color: var(--clr-primary-100);
+  padding: 0.325rem 0.75rem;
+}
+
+.shorten-url {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.shorten-url input {
+  width: 80%;
+  height: 50px;
+}
+
+.shorten-button {
+  white-space: nowrap;
+  width: max-content;
+  border-radius: 0;
+}
+
+.input-wrapper,
+.info-box {
+  display: flex;
+}
+
+.info-box {
+  justify-content: space-between;
+}
+
+.shorten-url input {
+  border-right: none;
+}

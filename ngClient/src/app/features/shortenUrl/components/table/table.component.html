@@ -1,0 +1,76 @@
+<div class="wrapper container bg-primary-100" *ngIf="!!shortenUrlsResponse">
+  <div class="table-nav">
+    <div class="admin-group" *appHasRole="['ADMIN']">
+      <button class="admin-btn" holdable (holdTime)="deleteAll($event, 100000)">Delete All</button>
+      <progress max="100" [value]="progressMap.get(100000)"></progress>
+    </div>
+    <div class="general-actions">
+      <div class="actions">
+        <p class="text-primary-400" style="text-wrap: nowrap;">Items {{params.pageSize * (params.page - 1)}}-{{shortenUrlsResponse.items.length + params.pageSize * (params.page - 1)}} of {{shortenUrlsResponse.totalCount}}</p>
+      </div>
+      <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+        <input type="search" id="search" placeholder="Search..." formControlName="searchTerm">
+      </form>
+    </div>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns">
+            {{column | titlecase}}
+          </th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <ng-container *ngIf="shortenUrlsResponse.items.length > 0 else noItems">
+        <tbody>
+          <tr *ngFor="let item of shortenUrlsResponse.items">
+            <td>
+              {{item.id}}
+            </td>
+            <td>
+              <a [href]="item.longUrl" class="fw-medium">{{item.longUrl}}</a>
+            </td>
+            <td>
+              <a [href]="item.shortUrl" class="fw-medium">{{item.shortUrl}}</a>
+            </td>
+            <td>
+              <p class="fw-medium">{{item.code}}</p>
+            </td>
+            <td>
+              <p class="fw-medium" style="white-space: nowrap;">{{item.createdAt | date}}</p>
+            </td>
+            <td>
+              {{item.applicationUserId}}
+            </td>
+            <td>
+              <div class="actions">
+                <button routerLink="{{item.id}}" class="icon-button text-green-accent-400" style="font-size: 1.25rem;"><fa-icon [icon]="iconEye"></fa-icon></button>
+                <div *ngIf="item.applicationUserId == authService.userId">
+                  <button holdable (holdTime)="deleteRow($event, item.id)" class="icon-button text-red-accent-400" style="font-size: 1.25rem;"><fa-icon [icon]="iconTrash"></fa-icon></button>
+                  <progress max="100" [value]="progressMap.get(item.id)"></progress>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </ng-container>
+    </table>
+    <ng-container *ngIf="!!shortenUrlsResponse && shortenUrlsResponse.items.length > 0">
+    <div class="pagination justify-center">
+      <app-pagination
+        [currentPage]="params.page"
+        [itemsPerPage]="params.pageSize"
+        [totalItems]="shortenUrlsResponse.totalCount"
+        (pageChanged)="onPageChange($event)">
+      </app-pagination>
+    </div>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #noItems>
+  <div class="padding-block-600"></div>
+    <p class="fw-medium fs-secondary-title no-items-message">No match...</p>
+</ng-template>

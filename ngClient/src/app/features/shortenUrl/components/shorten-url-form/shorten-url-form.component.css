@@ -1,0 +1,38 @@
+.form-wrapper {
+  text-align: center;
+  padding: 0.75rem 2rem;
+}
+
+.form-wrapper .title{
+  margin: 0.75rem auto 2rem auto;
+}
+
+.form-group {
+  text-align: left;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.shorten-form input {
+  width: 80%;
+  height: 3rem;
+}
+
+.shorten-button {
+  white-space: nowrap;
+  width: max-content;
+  border-radius: 0;
+}
+
+.input-wrapper {
+  display: flex;
+}
+
+.shorten-form input {
+  border-right: none;
+}
+
+.text-block {
+  text-align: center;
+  margin: 10px auto 20px;
+}
